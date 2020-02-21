@@ -1,0 +1,6 @@
+{
+  "mode": "modules",
+  "out": "docs",
+  "name": "Crop Image",
+  "includeVersion": "0.1.0"
+}
