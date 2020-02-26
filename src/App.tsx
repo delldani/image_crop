@@ -51,16 +51,21 @@ class App extends React.Component<MyProps, MyState> {
     return (
       <div>
         <input data-testid="input" onChange={this.onChange} type="file"></input>
-        {this.state.file ? (
-          <CropComponent
-            getCroppedImage={this.getCroppedImage}
-            image={file}
-            imageStyle={{ height: "400px", width: "300px" }}
-          />
-        ) : (
-          <p>kép helye</p>
-        )}
-        {resultImage ? <img src={resultImage} alt="as" /> : null}
+        <div data-testid="cropimage">
+          {this.state.file ? (
+            <CropComponent
+              getCroppedImage={this.getCroppedImage}
+              image={file}
+              imageStyle={{ height: "400px", width: "300px" }}
+            />
+          ) : (
+            <p>kép helye</p>
+          )}
+        </div>
+
+        {resultImage ? (
+          <img data-testid="resultimage" src={resultImage} alt="as" />
+        ) : null}
       </div>
     );
   }
