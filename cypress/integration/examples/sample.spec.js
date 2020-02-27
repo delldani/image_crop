@@ -1,4 +1,3 @@
-import React from "react";
 import "@testing-library/cypress/add-commands";
 import "cypress-file-upload";
 
@@ -24,5 +23,6 @@ describe("My First Test", function() {
       .trigger("mousedown", 30, 30)
       .trigger("mousemove", 70, 70)
       .trigger("mouseup");
+    cy.get('[data-testid="resultimage"]').should("exist");
   });
 });
