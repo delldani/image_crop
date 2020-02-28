@@ -19,6 +19,7 @@ describe("My First Test", function() {
       });
     });
 
+    cy.get('[data-testid="resultimage"]').should("not.exist");
     cy.get('[data-testid="cropimage"]')
       .trigger("mousedown", 30, 30)
       .trigger("mousemove", 70, 70)
