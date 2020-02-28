@@ -1,7 +1,7 @@
 import "@testing-library/cypress/add-commands";
 import "cypress-file-upload";
 
-describe("My First Test", function() {
+describe("Cypress e2e test for cropping", function() {
   it("Does  much!", function() {
     expect(true).to.equal(true);
     cy.visit("http://localhost:3000/");
