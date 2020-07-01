@@ -4,7 +4,7 @@ import "react-image-crop/dist/ReactCrop.css";
 
 function urlToImage(imageUrl: string) {
   let image = new Image();
-  image.onload = function() {};
+  image.onload = function () {};
   image.src = imageUrl;
   return image;
 }
@@ -64,6 +64,7 @@ export function getCroppedImageFromComponent(
       "image/jpeg",
       1
     );
+    console.warn(reject);
   });
 }
 
@@ -104,7 +105,7 @@ class CropComponent extends React.Component<MyProps, MyState> {
       imageAsFileIfPropsIsFile:
         typeof props.image === "object" ? props.image : null,
       crop: null,
-      percentCrop: null
+      percentCrop: null,
     };
   }
 
@@ -124,7 +125,7 @@ class CropComponent extends React.Component<MyProps, MyState> {
       console.log(Crop);
       console.log("Corp százalékkal megadva : ");
       console.log(percentCrop);
-    }
+    },
   };
 
   onComplete(newCorp: Crop, percentCrop: PercentCrop) {
@@ -136,7 +137,7 @@ class CropComponent extends React.Component<MyProps, MyState> {
       percentCrop,
       cropedFileName,
       urlToImage(this.state.image)
-    ).then(resultPicture => {
+    ).then((resultPicture) => {
       if (newCorp.width || newCorp.height) getCroppedImage(resultPicture);
     });
   }
@@ -159,7 +160,7 @@ class CropComponent extends React.Component<MyProps, MyState> {
         imageAsFileIfPropsIsFile:
           typeof props.image === "object" ? props.image : null,
         crop: null,
-        percentCrop: null
+        percentCrop: null,
       };
     }
 
@@ -180,7 +181,7 @@ class CropComponent extends React.Component<MyProps, MyState> {
           onChange={(newCrop: Crop, percentCrop: PercentCrop) => {
             this.setState({
               crop: newCrop,
-              percentCrop: percentCrop
+              percentCrop: percentCrop,
             });
           }}
           onComplete={this.onComplete}

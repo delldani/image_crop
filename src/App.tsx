@@ -9,7 +9,7 @@ const toBase64 = (file: any) =>
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
+    reader.onerror = (error) => reject(error);
   });
 
 type MyState = {
@@ -42,7 +42,7 @@ class App extends React.Component<MyProps, MyState> {
   getCroppedImage(resultImageFromComponent: File | undefined) {
     if (resultImageFromComponent)
       this.setState({
-        resultImage: URL.createObjectURL(resultImageFromComponent)
+        resultImage: URL.createObjectURL(resultImageFromComponent),
       });
   }
 
